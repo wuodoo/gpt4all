@@ -1,5 +1,6 @@
 #include "modellist.h"
 
+#include "download.h"
 #include "mysettings.h"
 #include "network.h"
 
@@ -33,7 +34,6 @@
 #include <QtLogging>
 
 #include <algorithm>
-#include <compare>
 #include <cstddef>
 #include <iterator>
 #include <string>
@@ -1442,22 +1442,6 @@ void ModelList::updateDataForSettings()
     emit dataChanged(index(0, 0), index(m_models.size() - 1, 0));
 }
 
-static std::strong_ordering compareVersions(const QString &a, const QString &b)
-{
-    QStringList aParts = a.split('.');
-    QStringList bParts = b.split('.');
-
-    for (int i = 0; i < std::min(aParts.size(), bParts.size()); ++i) {
-        int aInt = aParts[i].toInt();
-        int bInt = bParts[i].toInt();
-        if (auto diff = aInt <=> bInt; diff != 0) {
-            return diff;
-        }
-    }
-
-    return aParts.size() <=> bParts.size();
-}
-
 void ModelList::parseModelsJsonFile(const QByteArray &jsonData, bool save)
 {
     QJsonParseError err;
@@ -1509,11 +1493,11 @@ void ModelList::parseModelsJsonFile(const QByteArray &jsonData, bool save)
             continue;
 
         // If the current version is strictly less than required version, then skip
-        if (!requiresVersion.isEmpty() && compareVersions(currentVersion, requiresVersion) < 0)
+        if (!requiresVersion.isEmpty() && Download::compareAppVersions(currentVersion, requiresVersion) < 0)
             continue;
 
         // If the version removed is less than or equal to the current version, then skip
-        if (!versionRemoved.isEmpty() && compareVersions(versionRemoved, currentVersion) <= 0)
+        if (!versionRemoved.isEmpty() && Download::compareAppVersions(versionRemoved, currentVersion) <= 0)
             continue;
 
         modelFilesize = ModelList::toFileSize(modelFilesize.toULongLong());

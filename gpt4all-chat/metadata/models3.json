@@ -1,17 +1,17 @@
 [
   {
     "order": "a",
-    "md5sum": "3a265fbb343693d283f8a4ec5e7f1529",
-    "name": "Llama 3.1 8B Instruct",
-    "filename": "Meta-Llama-3.1-8B-Instruct.Q4_0.gguf",
-    "filesize": "4661211808",
-    "requires": "3.1.0",
+    "md5sum": "8a9c75bcd8a66b7693f158ec96924eeb",
+    "name": "Llama 3.1 8B Instruct 128k",
+    "filename": "Meta-Llama-3.1-8B-Instruct-128k-Q4_0.gguf",
+    "filesize": "4661212096",
+    "requires": "3.1.1",
     "ramrequired": "8",
     "parameters": "8 billion",
     "quant": "q4_0",
     "type": "LLaMA3",
-    "description": "<ul><li>Fast responses</li><li>Chat based model</li><li>Accepts agentic system prompts in Llama 3.1 format</li><li>Trained by Meta</li><li>License: <a href=\"https://llama.meta.com/llama3_1/license/\">Meta Llama 3.1 Community License</a></li></ul>",
-    "url": "https://huggingface.co/3Simplex/Meta-Llama-3.1-8B-Instruct-gguf/resolve/main/Meta-Llama-3.1-8B-Instruct-Q4_0.gguf",
+    "description": "<ul><li>Fast responses</li><li>Chat based model</li><li>Large context size of 128k</li><li>Accepts agentic system prompts in Llama 3.1 format</li><li>Trained by Meta</li><li>License: <a href=\"https://llama.meta.com/llama3_1/license/\">Meta Llama 3.1 Community License</a></li></ul>",
+    "url": "https://huggingface.co/GPT4All-Community/Meta-Llama-3.1-8B-Instruct-128k/resolve/main/Meta-Llama-3.1-8B-Instruct-128k-Q4_0.gguf",
     "promptTemplate": "<|start_header_id|>user<|end_header_id|>\n\n%1<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n%2",
     "systemPrompt": "<|start_header_id|>system<|end_header_id|>\nCutting Knowledge Date: December 2023\n\nYou are a helpful assistant.<|eot_id|>"
   },
@@ -386,5 +386,21 @@
     "systemPrompt": "",
     "description": "nomic-embed-text-v1.5",
     "url": "https://gpt4all.io/models/gguf/nomic-embed-text-v1.5.f16.gguf"
+  },
+  {
+    "order": "z",
+    "md5sum": "a8c5a783105f87a481543d4ed7d7586d",
+    "name": "Qwen2-1.5B-Instruct",
+    "filename": "qwen2-1_5b-instruct-q4_0.gguf",
+    "filesize": "937532800",
+    "requires": "3.0",
+    "ramrequired": "4",
+    "parameters": "1.5 billion",
+    "quant": "q4_0",
+    "type": "qwen2",
+    "description": "<ul><li>Very fast responses</li><li>Instruction based model</li><li>Usage of LocalDocs (RAG): Highly recommended</li><li>Supports context length of up to 32768</li><li>Trained and finetuned by Qwen (Alibaba Cloud)</li><li>License: <a href=\"https://www.apache.org/licenses/LICENSE-2.0.html/\">Apache 2.0</a></li></ul>",
+    "url": "https://huggingface.co/Qwen/Qwen2-1.5B-Instruct-GGUF/resolve/main/qwen2-1_5b-instruct-q4_0.gguf",
+    "promptTemplate": "<|im_start|>user\n%1<|im_end|>\n<|im_start|>assistant\n%2<|im_end|>",
+    "systemPrompt": "<|im_start|>system\nBelow is an instruction that describes a task. Write a response that appropriately completes the request.<|im_end|>\n"
   }
 ]
