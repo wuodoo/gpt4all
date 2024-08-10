@@ -1295,7 +1295,7 @@ model to get started</source>
         <location filename="../qml/ChatView.qml" line="876"/>
         <location filename="../../build_gpt4all-chat_Desktop_Qt_6_7_2/gpt4all/qml/ChatView.qml" line="876"/>
         <source>restoring from text ...</source>
-        <translation type="unfinished"></translation>
+        <translation>从文本恢复中</translation>
     </message>
     <message>
         <location filename="../qml/ChatView.qml" line="879"/>
